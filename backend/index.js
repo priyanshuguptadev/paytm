@@ -7,10 +7,8 @@ import accountRouter from './routes/account.js'
 const app = express()
 
 app.use(cors({
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-  origin: 'https://paytm-frontend-three.vercel.app/'
+  origin: 'https://paytm-frontend-three.vercel.app/',
+  credentials: true
 }))
 app.use(express.json())
 
