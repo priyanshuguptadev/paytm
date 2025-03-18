@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Signup } from './pages/Signup'
 import { Signin } from './pages/Signin'
 import { Dashboard } from './pages/Dashboard'
-import { Send } from './pages/Send'
-import { Balance } from './pages/Balance'
 import { ProtectedRoute } from './pages/ProtectedRoute'
 function App() {
 
@@ -16,8 +14,6 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path='/' element={<Dashboard />}/>
           <Route path='/dashboard' element={<Dashboard />}/>
-          <Route path='/send/:id' element={<Send />}/>
-        <Route path='/balance' element={<Balance />} />
         </Route>
       </Routes>
     </BrowserRouter>
