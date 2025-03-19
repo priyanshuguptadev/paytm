@@ -3,8 +3,8 @@ export const Search = ({ onChange }) => {
     <input
       onChange={onChange}
       type="text"
-      placeholder="Search your friends..."
-      className="input input-bordered w-fit md:w-auto"
+      placeholder="Search friends..."
+      className="input input-bordered w-32 md:w-auto"
     />
   );
 };
