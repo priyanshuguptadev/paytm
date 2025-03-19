@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export const Signup = () => {
+  const [loading, setLoading] = useState(false)
   const [signupData, setSignupdata] = useState({
     firstName: "",
     lastName: "",
@@ -13,6 +14,7 @@ export const Signup = () => {
   });
   const navigate = useNavigate();
   const signup = async () => {
+    setLoading(true)
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKENED_URL}/api/v1/user/signup`,
@@ -25,6 +27,7 @@ export const Signup = () => {
         navigate("/signup");
       }
     } catch (e) {
+      setLoading(false)
       console.log(e);
     }
   };
@@ -74,7 +77,7 @@ export const Signup = () => {
               }));
             }}
           />
-          <Button label={"Create"} onClick={signup} />
+          <Button label={"Create"} onClick={signup} loading={loading}/>
           <button
             className="btn btn-secondary"
             onClick={() => navigate("/signin")}

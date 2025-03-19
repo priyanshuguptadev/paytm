@@ -5,6 +5,7 @@ import { InputBox } from "../components/InputBox";
 import { useNavigate } from "react-router-dom";
 
 export const Signin = () => {
+  const [loading, setLoading] = useState(false)
   const [signinData, setSigninData] = useState({
     username: "",
     password: "",
@@ -12,6 +13,7 @@ export const Signin = () => {
   const navigate = useNavigate();
 
   const signin = async () => {
+    setLoading(true)
     try {
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKENED_URL}/api/v1/user/signin`,
@@ -25,6 +27,7 @@ export const Signin = () => {
       }
       
     } catch (e) {
+      setLoading(false)
       console.log(e);
     }
   };
@@ -55,7 +58,7 @@ export const Signin = () => {
               }));
             }}
           />
-          <Button label={"Login"} onClick={signin} />
+          <Button label={"Login"} onClick={signin} loading={loading}/>
           <button className="btn btn-secondary" onClick={() => navigate("/signup")}>
             Go to Signup
           </button>
