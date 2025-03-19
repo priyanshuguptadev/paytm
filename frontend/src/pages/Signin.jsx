@@ -18,11 +18,13 @@ export const Signin = () => {
         signinData
       );
 
-      if (!data) {
+      if (!data.msg) {
+        localStorage.setItem("token", `Bearer ${data.token}`);
+        navigate("/dashboard");
+      }else{
         navigate("/signin");
       }
-      localStorage.setItem("token", `Bearer ${data.token}`);
-      navigate("/dashboard");
+      
     } catch (e) {
       console.log(e);
     }
@@ -55,7 +57,9 @@ export const Signin = () => {
             }}
           />
           <Button label={"Login"} onClick={signin} />
-          <button class="btn btn-secondary" onClick={()=>navigate('/signup')}>Go to Signup</button>
+          <button className="btn btn-secondary" onClick={() => navigate("/signup")}>
+            Go to Signup
+          </button>
         </div>
       </div>
     </div>

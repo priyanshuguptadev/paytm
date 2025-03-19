@@ -4,7 +4,7 @@ export const Search = ({ onChange }) => {
       onChange={onChange}
       type="text"
       placeholder="Search your friends..."
-      className="input input-bordered w-24 md:w-auto"
+      className="input input-bordered w-fit md:w-auto"
     />
   );
 };

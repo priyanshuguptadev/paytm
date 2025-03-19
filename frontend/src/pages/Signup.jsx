@@ -18,11 +18,12 @@ export const Signup = () => {
         `${import.meta.env.VITE_BACKENED_URL}/api/v1/user/signup`,
         signupData
       );
-      if (!data) {
+      if (!data.msg) {
+        localStorage.setItem("token", `Bearer ${data.token}`);
+        navigate("/dashboard");
+      } else {
         navigate("/signup");
       }
-      localStorage.setItem("token", `Bearer ${data.token}`);
-      navigate("/dashboard");
     } catch (e) {
       console.log(e);
     }
@@ -31,8 +32,8 @@ export const Signup = () => {
     <div className="min-h-screen w-full bg-base-100 flex justify-center items-center">
       <div className="card bg-base-200 w-96 shadow-sm">
         <div className="card-body">
-        <h2 className="card-title">PayPaisa</h2>
-        <p>Create a free Account now</p>
+          <h2 className="card-title">PayPaisa</h2>
+          <p>Create a free Account now</p>
           <InputBox
             label={"First Name"}
             placeholder={"John"}
@@ -74,7 +75,12 @@ export const Signup = () => {
             }}
           />
           <Button label={"Create"} onClick={signup} />
-          <button class="btn btn-secondary" onClick={()=>navigate('/signin')}>Go to Login</button>
+          <button
+            className="btn btn-secondary"
+            onClick={() => navigate("/signin")}
+          >
+            Go to Login
+          </button>
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ export const Dashboard = () => {
           )
         }
       />
-      <ul className="list bg-base-100 rounded-box shadow-md w-2/3">
+      <ul className="list bg-base-100 rounded-box shadow-md md:w-2/3 mt-8 w-full mx-2">
         <li className="p-4 pb-2 text-xl opacity-60 tracking-wide">
           People you can send money to
         </li>
