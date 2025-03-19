@@ -17,7 +17,6 @@ export const Signin = () => {
         `${import.meta.env.VITE_BACKENED_URL}/api/v1/user/signin`,
         signinData
       );
-
       if (!data.msg) {
         localStorage.setItem("token", `Bearer ${data.token}`);
         navigate("/dashboard");
